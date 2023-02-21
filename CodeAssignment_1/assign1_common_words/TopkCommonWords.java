@@ -91,7 +91,6 @@ public class TopkCommonWords {
       }
 
       if (input1 && input2) {
-        System.out.println("Enter this loop");
         int minCount = Math.min(sum1, sum2);
         con.write(key, new IntWritable(minCount));
       }
