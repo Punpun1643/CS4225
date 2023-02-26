@@ -128,6 +128,7 @@ public class TopkCommonWords {
         }
 
         List<Text> words = freqMap.get(freq);
+        Collections.sort(words);
 
         for (Text word : words) {
           if (i == k) {
