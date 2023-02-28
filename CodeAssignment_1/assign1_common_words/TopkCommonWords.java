@@ -37,7 +37,7 @@ public class TopkCommonWords {
     @Override
     protected void setup(Context con) throws IOException, InterruptedException {
       Configuration conf = con.getConfiguration();
-      String stopWordsPath = conf.get("stopwords.txt");
+      String stopWordsPath = conf.get("stopwords");
 
       BufferedReader br = new BufferedReader(
         new FileReader(new File(stopWordsPath))
@@ -85,8 +85,8 @@ public class TopkCommonWords {
       Integer sum1 = 0;
       Integer sum2 = 0;
       Configuration conf = con.getConfiguration();
-      String filePath1 = conf.get("task1-input1.txt");
-      String filePath2 = conf.get("task1-input2.txt");
+      String filePath1 = conf.get("input1");
+      String filePath2 = conf.get("input2");
       String[] elem1 = filePath1.split("/");
       String[] elem2 = filePath2.split("/");
 
@@ -150,9 +150,9 @@ public class TopkCommonWords {
     Path inputPath1 = new Path(args[0]);
     Path inputPath2 = new Path(args[1]);
     String k = args[4];
-    conf.set("stopwords.txt", stopWords.toString());
-    conf.set("task1-input1.txt", inputPath1.toString());
-    conf.set("task1-input2.txt", inputPath2.toString());
+    conf.set("stopwords", stopWords.toString());
+    conf.set("input1", inputPath1.toString());
+    conf.set("input2", inputPath2.toString());
     conf.set("k", k);
 
     Job job = Job.getInstance(conf, "top k words");
